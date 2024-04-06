@@ -32,6 +32,10 @@ public class Todo {
         this.prioridade = prioridade;
     }
 
+    public Todo() {
+
+    }
+
     public Long getiTodo() {
         return iTodo;
     }
