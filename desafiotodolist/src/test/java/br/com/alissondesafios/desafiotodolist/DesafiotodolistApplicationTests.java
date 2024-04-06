@@ -21,12 +21,8 @@ class DesafiotodolistApplicationTests {
 
 	@Test
 	void testCreateTodoSuccess() {
-		Todo todoObject = new Todo();
-		todoObject.setiTodo(1L);
-		todoObject.setName("Breakfast");
-		todoObject.setDescricao("Make the breakfast");
-		todoObject.setFinished(Boolean.FALSE);
-		todoObject.setPrioridade(1);
+
+		Todo todoObject = new Todo("Breakfast", "Make breakfast", false, 1);
 
 		webTestClient
 				.post()
@@ -41,6 +37,18 @@ class DesafiotodolistApplicationTests {
 				.jsonPath("$[0].descricao").isEqualTo(todoObject.getDescricao())
 				.jsonPath("$[0].finished").isEqualTo(todoObject.getFinished())
 				.jsonPath("$[0].prioridade").isEqualTo(todoObject.getPrioridade());
+
+	}
+
+	@Test
+	void testCreateTodoFailure() {
+		webTestClient
+				.post()
+				.uri("/todos")
+				.bodyValue(
+						new Todo("", "", false, 1)
+				).exchange()
+				.expectStatus().isBadRequest();
 
 	}
 

@@ -2,6 +2,7 @@ package br.com.alissondesafios.desafiotodolist.controller;
 
 import br.com.alissondesafios.desafiotodolist.entity.Todo;
 import br.com.alissondesafios.desafiotodolist.service.TodoService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class TodoController {
     }
 
     @PostMapping
-    public List<Todo> create(@RequestBody Todo todo) {
+    public List<Todo> create(@RequestBody @Valid Todo todo) {
         return todoService.create(todo);
     }
 

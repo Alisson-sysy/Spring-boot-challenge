@@ -1,6 +1,9 @@
 package br.com.alissondesafios.desafiotodolist.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import org.antlr.v4.runtime.misc.NotNull;
+import org.apache.logging.log4j.message.Message;
 
 // signals that this is an entity
 @Entity
@@ -12,10 +15,22 @@ public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long iTodo;
+
+    @NotBlank
     private String name;
+
+    @NotBlank
     private String descricao;
+
     private Boolean finished;
     private int prioridade;
+
+    public Todo(String name, String descricao, Boolean finished, int prioridade) {
+        this.name = name;
+        this.descricao = descricao;
+        this.finished = finished;
+        this.prioridade = prioridade;
+    }
 
     public Long getiTodo() {
         return iTodo;
