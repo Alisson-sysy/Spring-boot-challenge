@@ -17,6 +17,7 @@
 - Dependency Injection
 - Handling error responses
 - Automatic Swagger generation with OpenAPI 3
+- Conventional commits
 
 ## How to Run
 
@@ -53,35 +54,34 @@ POST - localhost:8080/todos
     "realizado": false
   }
 ```
+
 <h2 align="center">List</h2>
 
 - Request URL
 ```
 GET - localhost:8080/todos
 ```
+
+<h2 align="center">Update</h2>
+
+- Request URL
+```
+POST - localhost:8080/todos
+```
 - Body
 ```
-{}
-```
-
-<!-- - Atualizar Tarefa
-```
-$ http PUT :8080/todos/1 nome="Todo 1 Up" descricao="Desc Todo 1 Up" prioridade=2
-
-[
   {
-    "descricao": "Desc Todo 1 Up",
+    "descricao": "Desc Todo 1",
     "id": 1,
-    "nome": "Todo 1 Up",
-    "prioridade": 2,
+    "nome": "Todo 1",
+    "prioridade": 1,
     "realizado": false
   }
-]
 ```
 
-- Remover Tarefa
-```
-http DELETE :8080/todos/1
+<h2 align="center">Delete</h2>
 
-[ ] -->
+- Request URL
+```
+GET - localhost:8080/todos/{Id}
 ```
